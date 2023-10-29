@@ -8,6 +8,7 @@ class ImageViewer {
     this.selectAllButton = element.querySelector('.select-all');
     this.sendButton = element.querySelector('.send');
     this.imagePreview =  element.querySelector('.ui.fluid.image');
+    this.showLoadButton = element.querySelector('.show-uploaded-files');
     this.registerEvents();
       
     
@@ -50,7 +51,21 @@ class ImageViewer {
           this.checkButtonText()
         })
       }
+    })
+
+    this.showLoadButton.addEventListener('click', () => {
+      App.modals.filePreviewer.open();
+      Yandex.getUploadedFiles(function(resp) {App.modals.filePreviewer.showImages(resp)});    
       
+    })
+
+    this.sendButton.addEventListener('click', () => {
+      App.modals.fileUploader.open();
+      let images = [];
+      this.picList.querySelectorAll('.selected').forEach(el => {
+        images.push(el.src)
+      });
+      App.modals.fileUploader.showImages(images);
     })
   }
 
@@ -58,7 +73,10 @@ class ImageViewer {
    * Очищает отрисованные изображения
    */
   clear() {
-
+    this.picList.querySelectorAll('.four.wide.column.ui.medium.image-wrapper').forEach((el) => {
+      el.remove();
+    });
+    
   }
 
   /**

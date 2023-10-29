@@ -8,6 +8,7 @@ class SearchBlock {
     this.input = element.querySelector('input');
     this.addButton = element.querySelector('.add');
     this.replButton = element.querySelector('.replace');
+    this.imagesList = element.closest('.grid').querySelector('.images-list');
     this.registerEvents();
     this.photos = [];
   }
@@ -25,18 +26,19 @@ class SearchBlock {
           VK.processData(result);
         };              
         VK.get(Number(this.input.value), callbackFunc);
-        
       }
-    
-    
     });
 
     this.replButton.addEventListener('click', () => {
+      if(this.imagesList.querySelector(".row").childNodes.length > 1) {
+        App.imageViewer.clear();
+      }
       if(this.input.value.trim() != "") {
-        console.log('удалите ранее отрисованные изображения');
+        function callbackFunc(result) {
+          VK.processData(result);
+        };              
+        VK.get(Number(this.input.value), callbackFunc);
       }
     });
-    
   }
-
 }
