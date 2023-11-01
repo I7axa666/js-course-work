@@ -40,7 +40,7 @@ class PreviewModal extends BaseModal {
    * Отрисовывает изображения в блоке всплывающего окна
    */
   showImages(data) {
-    data.items.reverse();
+    // data.items.reverse();
     let markup = [];
     data.items.forEach(item => {
         markup.push(this.getImageInfo(item));

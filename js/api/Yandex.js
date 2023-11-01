@@ -49,7 +49,7 @@ class Yandex {
   static getUploadedFiles(callback){
     let options = {
       method: 'GET',
-      url: this.HOST + '/resources/files?media_type=image',
+      url: this.HOST + '/resources/files?media_type=image&sort=date_time',
       callback: callback
     };
     createRequest(options);
