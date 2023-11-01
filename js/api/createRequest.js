@@ -7,7 +7,6 @@ const createRequest = (options = {}) => {
     const curl = options.url;
     const token = Yandex.getToken();
     const callback = options.callback;
-    console.log(curl);
     const xhr = new XMLHttpRequest;
     try {
         xhr.onload = function() {

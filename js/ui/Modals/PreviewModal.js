@@ -84,11 +84,11 @@ class PreviewModal extends BaseModal {
     </tbody>
     </table>
     <div class="buttons-wrapper">
-      <button class="ui labeled icon red basic button delete" data-path=${item.path}>
+      <button class="ui labeled icon red basic button delete" data-path="${item.path}">
         Удалить
         <i class="trash icon"></i>
       </button>
-      <button class="ui labeled icon violet basic button download" data-file=${item.file}>
+      <button class="ui labeled icon violet basic button download" data-file="${item.file}">
         Скачать
         <i class="download icon"></i>
       </button>

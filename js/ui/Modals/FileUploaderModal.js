@@ -74,7 +74,7 @@ class FileUploaderModal extends BaseModal {
    * Валидирует изображение и отправляет его на сервер
    */
   sendImage(imageContainer) {
-    let path = imageContainer.querySelector('input').value.trim();
+    let path = imageContainer.querySelector('input').value.trim().replace(/[<,>,"]/g, "_");
     if(path) {
       imageContainer.querySelector('.action').classList.add('disabled');
       let url = imageContainer.querySelector('img').src;
