@@ -37,7 +37,7 @@ class Yandex {
   static removeFile(path, callback){
     let options = {
       method: 'DELETE',
-      url: this.HOST + '/resources?path=' + path,
+      url: this.HOST + '/resources?path=' + path.slice(6),
       callback: callback
     };
     createRequest(options);
